@@ -38,10 +38,10 @@ def main():
     parser.add_argument("--rotation", "-r",
                         help="degrees to rotate pi image", default=0)
     args = parser.parse_args()
-    interval = args.interval
-    images = args.images
+    interval = int(args.interval)
+    images = int(args.images)
     output = args.output
-    rotation = args.rotation
+    rotation = int(args.rotation)
     timelapse(int=interval, n=images, dir=output, rotation=rotation)
 
 
