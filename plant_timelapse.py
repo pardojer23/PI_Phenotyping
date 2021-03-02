@@ -42,7 +42,7 @@ def main():
     images = args.images
     output = args.output
     rotation = args.rotation
-    timelapse(int=interval, n=images, dir=output)
+    timelapse(int=interval, n=images, dir=output, rotation=rotation)
 
 
 if __name__ == "__main__":
