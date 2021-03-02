@@ -20,7 +20,7 @@ def timelapse(int, n, dir, rotation):
     camera = PiCamera()
     camera.rotation = rotation
     for i in range(n):
-        camera.capture(dir+os.pathsep()+"image{0:04d.jpg".format(i))
+        camera.capture(dir+os.pathsep+"image{0:04d.jpg".format(i))
         sleep(int)
 
 
