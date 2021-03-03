@@ -25,7 +25,7 @@ def timelapse(int, n, dir, rotation, iso, shutter, exposure):
     camera.exposure_compensation = exposure
     for i in range(n):
         print("Capturing image{0:04d} at {1}".format(i, datetime.datetime.now()))
-        camera.capture(os.pathjoin(dir, "image{0:04d}.jpg".format(i)))
+        camera.capture(os.path.join(dir, "image{0:04d}.jpg".format(i)))
         sleep(int)
 
 
