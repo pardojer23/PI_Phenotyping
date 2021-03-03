@@ -39,6 +39,15 @@ Note: if using the power supply be sure to connect it to the right most micro-US
 10) maker a new directory called `test_pictures` by typing `mkdir /home/pi/test_pictures`
 11) take a photo from the raspberry pi camera by typing `raspistill -o /home/pi/test_pictures/test_image.jpg`
 
+** Create timelapse with python***
+1) install git
+2) in a terminal window type `git clone https://github.com/pardojer23/PI_Phenotyping.git`
+3) navigate to the PI_Phenotyping directory `cd PI_Phenotyping`
+4) type `python3 setup.py install`
+5) create a new directory to store the photos `mkdir /home/pi/raspi_images`
+6) test the python program `python3 /home/pi/PI_Phenotyping/plant_timelapse.py -h`
+7) take a picture 
+
 
 
 
