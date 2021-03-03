@@ -40,7 +40,7 @@ def main():
                         help="path to output directory", default="./")
     parser.add_argument("--rotation", "-r",
                         help="degrees to rotate pi image", default=0)
-    parser.add_argument("--iso", "-i", help="camera iso 0 is auto mode", defualt=0)
+    parser.add_argument("--iso", "-i", type=int, help="camera iso 0 is auto mode", defualt=0)
     parser.add_argument("--shutter", "-s",
                         help="camera shutter speed in microseconds 0 is auto mode", default=0)
     parser.add_argument("--exposure", "-e", help="exposure compensation set between -25 and +25", defualt=0)
