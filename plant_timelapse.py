@@ -7,6 +7,7 @@ from picamera import PiCamera
 import os
 from time import sleep
 import argparse
+import datetime
 
 
 def timelapse(int, n, dir, rotation, iso, shutter, exposure):
@@ -23,6 +24,7 @@ def timelapse(int, n, dir, rotation, iso, shutter, exposure):
     camera.shutter_speed = shutter
     camera.exposure_compensation = exposure
     for i in range(n):
+        print("Capturing image{0:04d} at {1}".format(i, datetime.datetime.now()))
         camera.capture(dir+os.pathsep+"image{0:04d}.jpg".format(i))
         sleep(int)
 
