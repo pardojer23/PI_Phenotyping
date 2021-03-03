@@ -9,7 +9,7 @@ from time import sleep
 import argparse
 
 
-def timelapse(int, n, dir, rotation):
+def timelapse(int, n, dir, rotation, iso, shutter, exposure):
     """
     Uses the PI camera to take a set of images at a user defined interval
     :param int: length of interval between images in seconds
@@ -19,6 +19,9 @@ def timelapse(int, n, dir, rotation):
     """
     camera = PiCamera()
     camera.rotation = rotation
+    camera.iso = iso
+    camera.shutter_speed = shutter
+    camera.exposure_compensation = exposure
     for i in range(n):
         camera.capture(dir+os.pathsep+"image{0:04d}.jpg".format(i))
         sleep(int)
@@ -29,7 +32,7 @@ def main():
     main method parses command line arguments and runs the timelapse function.
     """
     parser = argparse.ArgumentParser()
-    parser.add_argument("--interval", "-i",
+    parser.add_argument("--interval", "-t",
                         help="length of time in seconds between images",
                         default=60)
     parser.add_argument("--images", "-n", help="number of images", default=1)
@@ -37,12 +40,28 @@ def main():
                         help="path to output directory", default="./")
     parser.add_argument("--rotation", "-r",
                         help="degrees to rotate pi image", default=0)
+    parser.add_argument("--iso", "-i", help="camera iso 0 is auto mode", defualt=0)
+    parser.add_argument("--shutter", "-s",
+                        help="camera shutter speed in microseconds 0 is auto mode", default=0)
+    parser.add_argument("--exposure", "-e", help="exposure compensation set between -25 and +25", defualt=0)
     args = parser.parse_args()
     interval = int(args.interval)
     images = int(args.images)
     output = args.output
     rotation = int(args.rotation)
-    timelapse(int=interval, n=images, dir=output, rotation=rotation)
+    iso = int(args.iso)
+    shutter_speed = int(args.shutter)
+    exposure_compensation = int(args.exposure)
+
+
+    timelapse(int=interval,
+              n=images,
+              dir=output,
+              rotation=rotation,
+              iso=iso,
+              shutter=shutter_speed,
+              exposure=exposure_compensation)
+
 
 
 if __name__ == "__main__":
