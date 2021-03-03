@@ -32,18 +32,18 @@ def main():
     main method parses command line arguments and runs the timelapse function.
     """
     parser = argparse.ArgumentParser()
-    parser.add_argument("--interval", "-t",
+    parser.add_argument("--interval", "-t", type=int,
                         help="length of time in seconds between images",
                         default=60)
-    parser.add_argument("--images", "-n", help="number of images", default=1)
+    parser.add_argument("--images", "-n", type=int, help="number of images", default=1)
     parser.add_argument("--output", "-o",
                         help="path to output directory", default="./")
     parser.add_argument("--rotation", "-r",
                         help="degrees to rotate pi image", default=0)
-    parser.add_argument("--iso", "-i", type=int, help="camera iso 0 is auto mode", defualt=0)
-    parser.add_argument("--shutter", "-s",
+    parser.add_argument("--iso", "-i", type=int, help="camera iso 0 is auto mode", default=0)
+    parser.add_argument("--shutter", "-s", type=int,
                         help="camera shutter speed in microseconds 0 is auto mode", default=0)
-    parser.add_argument("--exposure", "-e", help="exposure compensation set between -25 and +25", defualt=0)
+    parser.add_argument("--exposure", "-e", help="exposure compensation set between -25 and +25", default=0)
     args = parser.parse_args()
     interval = int(args.interval)
     images = int(args.images)
